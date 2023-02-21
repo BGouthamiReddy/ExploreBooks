@@ -1,0 +1,41 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found
+[visible]="!books || !books.length"
+resetLinkText="Reset Search"
+></app-not-found>
+<ul>
+  <li *ngFor="let book of books">
+    <a routerLink="/book/{{ book.id }}">
+      <img [src]="book.imageUrl" [alt]="book.name" />
+      <div class="content">
+        <div class="name">
+          {{ book.name }}
+        </div>
+      <span class="favorite {{ book.favorite ? '' : 'not' }}">
+        ❤
+      </span>
+      <div class="stars">
+        <star-rating
+          [value]="book.stars"
+          [totalstars]=5
+          checkedcolor="red"
+          uncheckedcolor="black"
+          size="22px"
+           [readonly]="true">
+        </star-rating>
+      </div>
+        <div class="author">
+          <span>
+            {{ book.author }}
+          </span>
+        </div>
+      <div class="price">
+        <span>
+          {{ book.price | currency }}
+        </span>
+      </div>
+    </div>
+    </a>
+  </li>
+</ul>
