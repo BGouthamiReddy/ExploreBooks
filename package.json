@@ -1,5 +1,12 @@
 {
-  "dependencies": {
-    "ngx-toastr": "^14.3.0"
+  "name": "ExploreBooks",
+  "version": "1.0.0",
+  "engines": {
+      "node": ">=18 <19"
+  },
+  "scripts": {
+      "start": "cd backend/built && node server.js",
+      "prebuild": "cd backend && npm run build",
+      "build": "cd frontend && npm run build"
   }
 }
